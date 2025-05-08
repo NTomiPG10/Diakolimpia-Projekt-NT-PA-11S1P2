@@ -1,0 +1,7 @@
+Lekérdezések, feladatok:
+
+1. Röplabda – A legtöbb hibát elkövető játékosok listája(top 3).
+2. Kézilabda – Melyik csapat kapta a legtöbb 2 perces kiállítást?
+3. Labdarúgás – Sárga lapot szerzők listája.
+4. Íjászat – Legmagasabb egyéni pontszám.
+5. Röplabda – Legtöbb háló érintéssel rendelkező játékos.
