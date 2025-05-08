@@ -1,8 +1,5 @@
 CREATE DATABASE RoplabdaFiuk;
-CREATE DATABASE RoplabdaLanyok;
-
-CREATE DATABASE PoklabdaFiuk;
-
+USE RoplabdaFiuk
 -- 1. Csapatok
 CREATE TABLE teams (
     team_id INT AUTO_INCREMENT PRIMARY KEY,
