@@ -1,111 +1,78 @@
-USE FociLanyok;
-
-
-INSERT INTO Team (TeamName, CoachName) VALUES 
-('Pécsi Párducok', 'Kiss Veronika'),
-('Győri Gyémántok', 'Nagy Eszter');
-
-
-INSERT INTO Player (TeamID, PlayerName, JerseyNumber, Position, IsSubstitute) VALUES
-(1, 'Molnár Anna', 10, 'Midfielder', FALSE),
-(1, 'Tóth Zsófia', 1, 'Goalkeeper', FALSE),
-(1, 'Kovács Júlia', 5, 'Defender', FALSE),
-(1, 'Varga Réka', 9, 'Forward', FALSE),
-(2, 'Horváth Dóra', 7, 'Midfielder', FALSE),
-(2, 'Balogh Laura', 11, 'Forward', FALSE),
-(2, 'Farkas Kata', 2, 'Defender', FALSE),
-(2, 'Tóth Lili', 1, 'Goalkeeper', FALSE);
-
-
-UPDATE Team SET CaptainPlayerID = 1 WHERE TeamID = 1;
-UPDATE Team SET CaptainPlayerID = 5 WHERE TeamID = 2;
-
-
-INSERT INTO Match (Date, Time, Location, City, HomeTeamID, AwayTeamID, MatchType) VALUES
-('2025-05-08', '20:00:00', 'Dunántúli Stadion', 'Pécs', 1, 2, 'Döntő');
-
-
-INSERT INTO Event (MatchID, Minute, EventType, Description, InvolvedPlayerID) VALUES
-(1, 15, 'Goal', 'Fejes gól szöglet után.', 4),
-(1, 38, 'YellowCard', 'Időhúzás.', 6),
-(1, 75, 'Penalty', 'Büntető megítélve.', 5);
-
-
-INSERT INTO Goal (EventID, ScorerPlayerID, GoalType) VALUES
-(1, 4, 'Header');
-
-
-INSERT INTO Card (EventID, CardType, Reason) VALUES
-(2, 'Yellow', 'Időhúzás');
-
-
-INSERT INTO Penalty (EventID, TeamID, PlayerID, PenaltyResult) VALUES
-(3, 2, 5, 'Saved');
-
-
-INSERT INTO Result (MatchID, HalfTimeScore, FullTimeScore) VALUES
-(1, '1-0', '1-0');
-
-
-INSERT INTO Officials (MatchID, RefereeName, Assistant1Name, Assistant2Name, VARName, MatchReporterName) VALUES
-(1, 'Szabó Erika', 'Varga Ágnes', 'Németh Katalin', 'Fehér Lilla', 'Tóth Bernadett');
-
-
-INSERT INTO Notes (MatchID, Minute, Description) VALUES
-(1, 82, 'Heves eső miatt a pálya csúszóssá vált.');
-
 USE FociFiuk;
 
 -- Csapatok beszúrása
 INSERT INTO Team (TeamName, CoachName) VALUES 
 ('Budapest Bajnokok', 'Kovács István'),
-('Debrecen Dühök', 'Tóth Gábor');
+('Debrecen Dühök', 'Tóth Gábor'),
+('Győri Gyilkosok', 'Nagy Balázs'),
+('Pécsi Prérifarkasok', 'Szabó Attila'),
+('Szegedi Sólymok', 'Varga Zoltán'),
+('Miskolci Menők', 'Kiss László'),
+('Szombathelyi Száguldók', 'Molnár Péter'),
+('Nyíregyházi Nyilak', 'Farkas Tamás'),
+('Kaposvári Kardok', 'Tóth Norbert'),
+('Kecskeméti Kékek', 'Horváth Dávid');
 
-
+-- Játékosok beszúrása
 INSERT INTO Player (TeamID, PlayerName, JerseyNumber, Position, IsSubstitute) VALUES
 (1, 'Nagy Ádám', 10, 'Midfielder', FALSE),
 (1, 'Kiss Péter', 1, 'Goalkeeper', FALSE),
 (1, 'Szabó Dániel', 5, 'Defender', FALSE),
 (1, 'Varga Tamás', 9, 'Forward', FALSE),
+
 (2, 'Horváth László', 7, 'Midfielder', FALSE),
 (2, 'Balogh Márk', 11, 'Forward', FALSE),
 (2, 'Farkas Gergő', 2, 'Defender', FALSE),
-(2, 'Tóth Kristóf', 1, 'Goalkeeper', FALSE);
+(2, 'Tóth Kristóf', 1, 'Goalkeeper', FALSE),
 
+(3, 'Simon Péter', 8, 'Midfielder', FALSE),
+(3, 'Tóth Áron', 4, 'Forward', FALSE),
+(3, 'Szilágyi Bence', 3, 'Defender', FALSE),
+(3, 'Németh Marcell', 12, 'Goalkeeper', FALSE),
 
+(4, 'Fehér Dominik', 6, 'Midfielder', FALSE),
+(4, 'Kovács Olivér', 9, 'Forward', FALSE),
+(4, 'Oláh Dániel', 5, 'Defender', FALSE),
+(4, 'Bognár Levente', 1, 'Goalkeeper', FALSE),
+
+(5, 'Vass Patrik', 7, 'Midfielder', FALSE),
+(5, 'Kis Máté', 10, 'Forward', FALSE),
+(5, 'Szőke Kristóf', 2, 'Defender', FALSE),
+(5, 'Papp Ádám', 13, 'Goalkeeper', FALSE),
+
+(6, 'Török Bálint', 8, 'Midfielder', FALSE),
+(6, 'Antal Márk', 6, 'Forward', FALSE),
+(6, 'Jakab Roland', 4, 'Defender', FALSE),
+(6, 'Bíró Ákos', 1, 'Goalkeeper', FALSE),
+
+(7, 'Gulyás Bence', 11, 'Midfielder', FALSE),
+(7, 'Halász Tamás', 9, 'Forward', FALSE),
+(7, 'Molnár Ádám', 3, 'Defender', FALSE),
+(7, 'Süli Dávid', 1, 'Goalkeeper', FALSE),
+
+(8, 'Pintér Levente', 5, 'Midfielder', FALSE),
+(8, 'Varga Kristóf', 7, 'Forward', FALSE),
+(8, 'Kádár Gergő', 2, 'Defender', FALSE),
+(8, 'Barta Máté', 12, 'Goalkeeper', FALSE),
+
+(9, 'Lengyel Balázs', 10, 'Midfielder', FALSE),
+(9, 'Sánta Gábor', 11, 'Forward', FALSE),
+(9, 'Sipos Dávid', 6, 'Defender', FALSE),
+(9, 'Lakatos Máté', 1, 'Goalkeeper', FALSE),
+
+(10, 'Fekete Gergely', 8, 'Midfielder', FALSE),
+(10, 'Orbán Patrik', 9, 'Forward', FALSE),
+(10, 'Major Ádám', 4, 'Defender', FALSE),
+(10, 'Csernus Bálint', 1, 'Goalkeeper', FALSE);
+
+-- Kapitányok beállítása
 UPDATE Team SET CaptainPlayerID = 1 WHERE TeamID = 1;
 UPDATE Team SET CaptainPlayerID = 5 WHERE TeamID = 2;
-
-
-INSERT INTO Match (Date, Time, Location, City, HomeTeamID, AwayTeamID, MatchType) VALUES
-('2025-05-08', '18:00:00', 'Puskás Aréna', 'Budapest', 1, 2, 'Alapszakasz');
-
-
-INSERT INTO Event (MatchID, Minute, EventType, Description, InvolvedPlayerID) VALUES
-(1, 23, 'Goal', 'Szép akciógól.', 4),
-(1, 45, 'YellowCard', 'Durva szabálytalanság.', 3),
-(1, 67, 'Substitution', 'Taktikai csere.', NULL);
-
-
-INSERT INTO Goal (EventID, ScorerPlayerID, GoalType) VALUES
-(1, 4, 'Action');
-
-
-INSERT INTO Card (EventID, CardType, Reason) VALUES
-(2, 'Yellow', 'Durva szabálytalanság');
-
-
-INSERT INTO Substitution (EventID, PlayerInID, PlayerOutID, SubstitutionType) VALUES
-(3, 1, 3, 'Tactical');
-
-
-INSERT INTO Result (MatchID, HalfTimeScore, FullTimeScore) VALUES
-(1, '1-0', '1-0');
-
-
-INSERT INTO Officials (MatchID, RefereeName, Assistant1Name, Assistant2Name, VARName, MatchReporterName) VALUES
-(1, 'Fekete Zoltán', 'Molnár Béla', 'Németh Gábor', 'Sárközi Péter', 'Fehér Krisztián');
-
-
-INSERT INTO Notes (MatchID, Minute, Description) VALUES
-(1, 60, 'Rövid áramszünet miatt 5 perc szünet volt.');
+UPDATE Team SET CaptainPlayerID = 9 WHERE TeamID = 3;
+UPDATE Team SET CaptainPlayerID = 13 WHERE TeamID = 4;
+UPDATE Team SET CaptainPlayerID = 17 WHERE TeamID = 5;
+UPDATE Team SET CaptainPlayerID = 21 WHERE TeamID = 6;
+UPDATE Team SET CaptainPlayerID = 25 WHERE TeamID = 7;
+UPDATE Team SET CaptainPlayerID = 29 WHERE TeamID = 8;
+UPDATE Team SET CaptainPlayerID = 33 WHERE TeamID = 9;
+UPDATE Team SET CaptainPlayerID = 37 WHERE TeamID = 10;
