@@ -1,7 +1,7 @@
 CREATE DATABASE FociFiuk;
 USE FociFiuk;
 
--- Csapatok
+
 CREATE TABLE Team (
     TeamID INT AUTO_INCREMENT PRIMARY KEY,
     TeamName VARCHAR(100) NOT NULL,
@@ -9,7 +9,7 @@ CREATE TABLE Team (
     CaptainPlayerID INT
 );
 
--- Játékosok
+
 CREATE TABLE Player (
     PlayerID INT AUTO_INCREMENT PRIMARY KEY,
     TeamID INT,
@@ -20,7 +20,7 @@ CREATE TABLE Player (
     FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
--- Mérkőzések
+
 CREATE TABLE Match (
     MatchID INT AUTO_INCREMENT PRIMARY KEY,
     Date DATE,
@@ -34,7 +34,7 @@ CREATE TABLE Match (
     FOREIGN KEY (AwayTeamID) REFERENCES Team(TeamID)
 );
 
--- Mérkőzés Események
+
 CREATE TABLE Event (
     EventID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
@@ -46,7 +46,7 @@ CREATE TABLE Event (
     FOREIGN KEY (InvolvedPlayerID) REFERENCES Player(PlayerID)
 );
 
--- Gólok
+
 CREATE TABLE Goal (
     GoalID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -56,7 +56,7 @@ CREATE TABLE Goal (
     FOREIGN KEY (ScorerPlayerID) REFERENCES Player(PlayerID)
 );
 
--- Cserék
+
 CREATE TABLE Substitution (
     SubstitutionID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -68,7 +68,7 @@ CREATE TABLE Substitution (
     FOREIGN KEY (PlayerOutID) REFERENCES Player(PlayerID)
 );
 
--- Lapok (sárga/piros)
+
 CREATE TABLE Card (
     CardID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -77,7 +77,7 @@ CREATE TABLE Card (
     FOREIGN KEY (EventID) REFERENCES Event(EventID)
 );
 
--- Büntetők
+
 CREATE TABLE Penalty (
     PenaltyID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -89,7 +89,7 @@ CREATE TABLE Penalty (
     FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID)
 );
 
--- Mérkőzés eredmény
+
 CREATE TABLE Result (
     ResultID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
@@ -100,7 +100,7 @@ CREATE TABLE Result (
     FOREIGN KEY (MatchID) REFERENCES Match(MatchID)
 );
 
--- Játékvezetők
+
 CREATE TABLE Officials (
     OfficialID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
@@ -112,7 +112,7 @@ CREATE TABLE Officials (
     FOREIGN KEY (MatchID) REFERENCES Match(MatchID)
 );
 
--- Megjegyzések
+
 CREATE TABLE Notes (
     NoteID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
@@ -125,7 +125,7 @@ CREATE TABLE Notes (
 CREATE DATABASE FociLanyok;
 USE FociLanyok;
 
--- Csapatok
+
 CREATE TABLE Team (
     TeamID INT AUTO_INCREMENT PRIMARY KEY,
     TeamName VARCHAR(100) NOT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE Team (
     CaptainPlayerID INT
 );
 
--- Játékosok
+
 CREATE TABLE Player (
     PlayerID INT AUTO_INCREMENT PRIMARY KEY,
     TeamID INT,
@@ -144,7 +144,7 @@ CREATE TABLE Player (
     FOREIGN KEY (TeamID) REFERENCES Team(TeamID)
 );
 
--- Mérkőzések
+
 CREATE TABLE Match (
     MatchID INT AUTO_INCREMENT PRIMARY KEY,
     Date DATE,
@@ -158,7 +158,7 @@ CREATE TABLE Match (
     FOREIGN KEY (AwayTeamID) REFERENCES Team(TeamID)
 );
 
--- Mérkőzés Események
+
 CREATE TABLE Event (
     EventID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
@@ -170,7 +170,7 @@ CREATE TABLE Event (
     FOREIGN KEY (InvolvedPlayerID) REFERENCES Player(PlayerID)
 );
 
--- Gólok
+
 CREATE TABLE Goal (
     GoalID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -180,7 +180,7 @@ CREATE TABLE Goal (
     FOREIGN KEY (ScorerPlayerID) REFERENCES Player(PlayerID)
 );
 
--- Cserék
+
 CREATE TABLE Substitution (
     SubstitutionID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -192,7 +192,7 @@ CREATE TABLE Substitution (
     FOREIGN KEY (PlayerOutID) REFERENCES Player(PlayerID)
 );
 
--- Lapok (sárga/piros)
+
 CREATE TABLE Card (
     CardID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -201,7 +201,7 @@ CREATE TABLE Card (
     FOREIGN KEY (EventID) REFERENCES Event(EventID)
 );
 
--- Büntetők
+
 CREATE TABLE Penalty (
     PenaltyID INT AUTO_INCREMENT PRIMARY KEY,
     EventID INT,
@@ -213,7 +213,7 @@ CREATE TABLE Penalty (
     FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID)
 );
 
--- Mérkőzés eredmény
+
 CREATE TABLE Result (
     ResultID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
@@ -224,7 +224,7 @@ CREATE TABLE Result (
     FOREIGN KEY (MatchID) REFERENCES Match(MatchID)
 );
 
--- Játékvezetők
+
 CREATE TABLE Officials (
     OfficialID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
@@ -236,7 +236,7 @@ CREATE TABLE Officials (
     FOREIGN KEY (MatchID) REFERENCES Match(MatchID)
 );
 
--- Megjegyzések
+
 CREATE TABLE Notes (
     NoteID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
