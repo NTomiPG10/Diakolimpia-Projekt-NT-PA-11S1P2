@@ -1,0 +1,8 @@
+A projekt feladatainak eloszlása:
+
+Nagy Tamás:
+	- Adatbázis struktúra alap kialakítása
+	- Lekérdezések, feladatok kitalálása
+Petőfi Ákos:
+	- Adatbázisok létrehozása
+	- Kódolás
