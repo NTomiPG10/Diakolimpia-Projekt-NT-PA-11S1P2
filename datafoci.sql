@@ -21,7 +21,7 @@ CREATE TABLE Player (
 );
 
 
-CREATE TABLE Match (
+CREATE TABLE Mtch (
     MatchID INT AUTO_INCREMENT PRIMARY KEY,
     Date DATE,
     Time TIME,
@@ -35,14 +35,14 @@ CREATE TABLE Match (
 );
 
 
-CREATE TABLE Event (
+CREATE TABLE Evnt (
     EventID INT AUTO_INCREMENT PRIMARY KEY,
     MatchID INT,
     Minute INT,
     EventType ENUM('Goal', 'Substitution', 'YellowCard', 'RedCard', 'Penalty'),
     Description TEXT,
     InvolvedPlayerID INT,
-    FOREIGN KEY (MatchID) REFERENCES Match(MatchID),
+    FOREIGN KEY (MatchID) REFERENCES Mtch(MatchID),
     FOREIGN KEY (InvolvedPlayerID) REFERENCES Player(PlayerID)
 );
 
@@ -52,7 +52,7 @@ CREATE TABLE Goal (
     EventID INT,
     ScorerPlayerID INT,
     GoalType ENUM('Action', 'Penalty', 'Header', 'OwnGoal'),
-    FOREIGN KEY (EventID) REFERENCES Event(EventID),
+    FOREIGN KEY (EventID) REFERENCES Evnt(EventID),
     FOREIGN KEY (ScorerPlayerID) REFERENCES Player(PlayerID)
 );
 
@@ -63,7 +63,7 @@ CREATE TABLE Substitution (
     PlayerInID INT,
     PlayerOutID INT,
     SubstitutionType ENUM('Tactical', 'Injury', 'Other'),
-    FOREIGN KEY (EventID) REFERENCES Event(EventID),
+    FOREIGN KEY (EventID) REFERENCES Evnt(EventID),
     FOREIGN KEY (PlayerInID) REFERENCES Player(PlayerID),
     FOREIGN KEY (PlayerOutID) REFERENCES Player(PlayerID)
 );
@@ -74,7 +74,7 @@ CREATE TABLE Card (
     EventID INT,
     CardType ENUM('Yellow', 'Red'),
     Reason TEXT,
-    FOREIGN KEY (EventID) REFERENCES Event(EventID)
+    FOREIGN KEY (EventID) REFERENCES Evnt(EventID)
 );
 
 
@@ -84,7 +84,7 @@ CREATE TABLE Penalty (
     TeamID INT,
     PlayerID INT,
     PenaltyResult ENUM('Goal', 'Saved', 'Missed'),
-    FOREIGN KEY (EventID) REFERENCES Event(EventID),
+    FOREIGN KEY (EventID) REFERENCES Evnt(EventID),
     FOREIGN KEY (TeamID) REFERENCES Team(TeamID),
     FOREIGN KEY (PlayerID) REFERENCES Player(PlayerID)
 );
@@ -97,7 +97,7 @@ CREATE TABLE Result (
     FullTimeScore VARCHAR(10),
     ExtraTimeScore VARCHAR(10),
     PenaltyShootoutScore VARCHAR(10),
-    FOREIGN KEY (MatchID) REFERENCES Match(MatchID)
+    FOREIGN KEY (MatchID) REFERENCES Mtch(MatchID)
 );
 
 
@@ -109,7 +109,7 @@ CREATE TABLE Officials (
     Assistant2Name VARCHAR(100),
     VARName VARCHAR(100),
     MatchReporterName VARCHAR(100),
-    FOREIGN KEY (MatchID) REFERENCES Match(MatchID)
+    FOREIGN KEY (MatchID) REFERENCES Mtch(MatchID)
 );
 
 
@@ -118,7 +118,7 @@ CREATE TABLE Notes (
     MatchID INT,
     Minute INT,
     Description TEXT,
-    FOREIGN KEY (MatchID) REFERENCES Match(MatchID)
+    FOREIGN KEY (MatchID) REFERENCES Mtch(MatchID)
 );
 
 
