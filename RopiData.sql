@@ -2,28 +2,120 @@ USE RoplabdaFiuk;
 
 -- Csapatok
 INSERT INTO teams (name) VALUES
-('Pécsi Sasok'),
-('Budapesti Farkasok');
+('Viharmadarak'),
+('Tüzes Tornádók'),
+('Acélcsillagok'),
+('Arany Sasok'),
+('Vörös Villámok'),
+('Kék Hullámok'),
+('Fekete Párducok'),
+('Fehér Tigrisek'),
+('Bronz Bajnokok'),
+('Zöld Sólymok');
 
 -- Mérkőzés
 INSERT INTO matches (date, location, home_team_id, away_team_id) VALUES
 ('2025-05-08 18:00:00', 'Pécs Sportcsarnok', 1, 2);
 
--- Játékosok (Pécsi Sasok)
+-- Viharmadarak
 INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
-(1, 'Nagy Bence', 5, 'Setter', TRUE),
-(1, 'Kovács Dániel', 7, 'Middle', TRUE),
-(1, 'Szabó Marcell', 9, 'Outside', TRUE),
-(1, 'Varga Péter', 11, 'Opposite', TRUE),
-(1, 'Tóth Ádám', 12, 'Libero', TRUE);
+(1, 'Kovács Ádám', 1, 'Setter', TRUE),
+(1, 'Szabó Márk', 2, 'Outside', TRUE),
+(1, 'Tóth Bence', 3, 'Middle', TRUE),
+(1, 'Nagy Kristóf', 4, 'Opposite', TRUE),
+(1, 'Farkas Levente', 5, 'Outside', FALSE),
+(1, 'László Dávid', 6, 'Middle', FALSE),
+(1, 'Bíró András', 7, 'Libero', TRUE);
 
--- Játékosok (Budapesti Farkasok)
+-- Tüzes Tornádók
 INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
-(2, 'Molnár Gergő', 4, 'Setter', TRUE),
-(2, 'Kiss Balázs', 6, 'Middle', TRUE),
-(2, 'Farkas Kristóf', 8, 'Outside', TRUE),
-(2, 'Horváth Zoltán', 10, 'Opposite', TRUE),
-(2, 'Lakatos Máté', 13, 'Libero', TRUE);
+(2, 'Molnár Patrik', 1, 'Setter', TRUE),
+(2, 'Varga Zoltán', 2, 'Outside', TRUE),
+(2, 'Kiss Gergely', 3, 'Middle', TRUE),
+(2, 'Balogh Milán', 4, 'Opposite', TRUE),
+(2, 'Szilágyi Máté', 5, 'Outside', FALSE),
+(2, 'Papp Dániel', 6, 'Middle', FALSE),
+(2, 'Simon Attila', 7, 'Libero', TRUE);
+
+-- Acélcsillagok
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(3, 'Németh Péter', 1, 'Setter', TRUE),
+(3, 'Horváth Máté', 2, 'Outside', TRUE),
+(3, 'Fodor Zsolt', 3, 'Middle', TRUE),
+(3, 'Török Krisztián', 4, 'Opposite', TRUE),
+(3, 'Bereczki Bálint', 5, 'Outside', FALSE),
+(3, 'Jakab Dénes', 6, 'Middle', FALSE),
+(3, 'Székely Richárd', 7, 'Libero', TRUE);
+
+-- Arany Sasok
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(4, 'Sándor Gábor', 1, 'Setter', TRUE),
+(4, 'Fekete Lehel', 2, 'Outside', TRUE),
+(4, 'Szőke Bence', 3, 'Middle', TRUE),
+(4, 'Bognár Áron', 4, 'Opposite', TRUE),
+(4, 'Takács Márton', 5, 'Outside', FALSE),
+(4, 'Barta István', 6, 'Middle', FALSE),
+(4, 'Benedek Ádám', 7, 'Libero', TRUE);
+
+-- Vörös Villámok
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(5, 'Kelemen Balázs', 1, 'Setter', TRUE),
+(5, 'Lengyel Ákos', 2, 'Outside', TRUE),
+(5, 'Major Tamás', 3, 'Middle', TRUE),
+(5, 'Pintér Zsolt', 4, 'Opposite', TRUE),
+(5, 'Borbély Kristóf', 5, 'Outside', FALSE),
+(5, 'Gál Dániel', 6, 'Middle', FALSE),
+(5, 'Bíró Roland', 7, 'Libero', TRUE);
+
+-- Kék Hullámok
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(6, 'Puskás Andor', 1, 'Setter', TRUE),
+(6, 'Vass Dániel', 2, 'Outside', TRUE),
+(6, 'Antal Zsolt', 3, 'Middle', TRUE),
+(6, 'Orosz Dávid', 4, 'Opposite', TRUE),
+(6, 'Barna András', 5, 'Outside', FALSE),
+(6, 'Soltész Patrik', 6, 'Middle', FALSE),
+(6, 'Sipos Márk', 7, 'Libero', TRUE);
+
+-- Fekete Párducok
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(7, 'Vincze Richárd', 1, 'Setter', TRUE),
+(7, 'Mészáros Norbert', 2, 'Outside', TRUE),
+(7, 'Lukács Bence', 3, 'Middle', TRUE),
+(7, 'Hajdu István', 4, 'Opposite', TRUE),
+(7, 'Ábrahám Ádám', 5, 'Outside', FALSE),
+(7, 'Juhász Dávid', 6, 'Middle', FALSE),
+(7, 'Görög Gábor', 7, 'Libero', TRUE);
+
+-- Fehér Tigrisek
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(8, 'Szűcs Ákos', 1, 'Setter', TRUE),
+(8, 'Veres Tamás', 2, 'Outside', TRUE),
+(8, 'Sárközi Marcell', 3, 'Middle', TRUE),
+(8, 'Oláh Norbert', 4, 'Opposite', TRUE),
+(8, 'Gulyás Péter', 5, 'Outside', FALSE),
+(8, 'Gyöngyös Bálint', 6, 'Middle', FALSE),
+(8, 'Sánta Zoltán', 7, 'Libero', TRUE);
+
+-- Bronz Bajnokok
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(9, 'Pál Attila', 1, 'Setter', TRUE),
+(9, 'Boros Áron', 2, 'Outside', TRUE),
+(9, 'Zentai Kristóf', 3, 'Middle', TRUE),
+(9, 'Tarnai Marcell', 4, 'Opposite', TRUE),
+(9, 'Kozma Benedek', 5, 'Outside', FALSE),
+(9, 'Kádár Zoltán', 6, 'Middle', FALSE),
+(9, 'Fodor Miklós', 7, 'Libero', TRUE);
+
+-- Zöld Sólymok
+INSERT INTO players (team_id, name, jersey_number, position, starter) VALUES
+(10, 'Balla Gergely', 1, 'Setter', TRUE),
+(10, 'Polgár Gábor', 2, 'Outside', TRUE),
+(10, 'Katona Ádám', 3, 'Middle', TRUE),
+(10, 'Sipos Tamás', 4, 'Opposite', TRUE),
+(10, 'Lukács Máté', 5, 'Outside', FALSE),
+(10, 'Bíró Márk', 6, 'Middle', FALSE),
+(10, 'Oláh Bálint', 7, 'Libero', TRUE);
 
 -- Szettek (például az első szett eredménye)
 INSERT INTO sets (match_id, set_number, home_score, away_score, start_time, end_time, winning_team_id) VALUES
